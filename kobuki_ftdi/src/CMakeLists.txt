@@ -7,12 +7,16 @@ target_link_libraries(ftdi_scan ftdi)
 
 add_executable(ftdi_kobuki ftdi_kobuki.cpp)
 target_link_libraries(ftdi_kobuki ftdi)
+ament_target_dependencies(ftdi_kobuki ecl_command_line)
+
 
 add_executable(ftdi_read_eeprom ftdi_read_eeprom.cpp)
 target_link_libraries(ftdi_read_eeprom ftdi)
+ament_target_dependencies(ftdi_read_eeprom ecl_command_line)
 
 add_executable(ftdi_write_eeprom ftdi_write_eeprom.cpp)
 target_link_libraries(ftdi_write_eeprom ftdi)
+ament_target_dependencies(ftdi_write_eeprom ecl_command_line)
 
 add_executable(find_devices find_devices.cpp)
 target_link_libraries(find_devices usb)
@@ -28,11 +32,12 @@ target_link_libraries(reset_device usb)
 
 add_executable(overwrite_serial_number overwrite_serial_number.cpp)
 target_link_libraries(overwrite_serial_number usb ftdi)
+ament_target_dependencies(overwrite_serial_number ecl_command_line)
 
 add_executable(unflasher unflasher.cpp)
 target_link_libraries(unflasher usb ftdi)
 
 install(TARGETS ftdi_scan ftdi_kobuki ftdi_read_eeprom ftdi_write_eeprom find_devices
                 get_serial_number flasher reset_device overwrite_serial_number unflasher
-        DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+        DESTINATION bin/${PROJECT_NAME}
 )

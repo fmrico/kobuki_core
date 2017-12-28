@@ -15,10 +15,17 @@ configure_file(version_info.cpp.in ${VERSION_FILE} @ONLY)
 # LIBRARIES
 ##############################################################################
 
-add_library(kobuki ${SOURCES} ${VERSION_FILE})
+add_library(kobuki SHARED ${SOURCES} ${VERSION_FILE})
 target_link_libraries(kobuki ${catkin_LIBRARIES})
-
-install(TARGETS kobuki
-        DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+ament_target_dependencies(kobuki
+	ecl_command_line
+	ecl_converters
+	ecl_devices
+	ecl_geometry
+	ecl_mobile_robot
+	ecl_sigslots
+	ecl_time
 )
-
+install(TARGETS kobuki
+        DESTINATION lib
+)

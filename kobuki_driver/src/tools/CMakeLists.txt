@@ -9,5 +9,5 @@ add_executable(simple_keyop simple_keyop.cpp)
 target_link_libraries(simple_keyop kobuki)
 
 install(TARGETS version_info simple_keyop
-        DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+        DESTINATION lib/${PROJECT_NAME}
 )
