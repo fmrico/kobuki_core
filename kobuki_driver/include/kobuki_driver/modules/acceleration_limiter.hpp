@@ -121,7 +121,8 @@ public:
       ret_val.push_back(command_vx);
       ret_val.push_back(command_wz);
       return ret_val;
-    }
+    }else
+      return std::vector<double>(); //Void vector
   }
 
 private:
