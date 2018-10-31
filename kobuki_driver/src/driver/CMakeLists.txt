@@ -15,17 +15,17 @@ configure_file(version_info.cpp.in ${VERSION_FILE} @ONLY)
 # LIBRARIES
 ##############################################################################
 
-add_library(${PROJECT_NAME} ${SOURCES} ${VERSION_FILE})
+add_library(kobuki ${SOURCES} ${VERSION_FILE})
 
 target_include_directories(
-  ${PROJECT_NAME}
+  kobuki
   PUBLIC
     $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:include>
 )
 
 target_link_libraries(
-  ${PROJECT_NAME}
+  kobuki
   PUBLIC
     ecl_converters::ecl_converters
     ecl_devices::ecl_devices
@@ -34,15 +34,14 @@ target_link_libraries(
     ecl_sigslots::ecl_sigslots
 )
 
-set_target_properties(${PROJECT_NAME}
+set_target_properties(kobuki
   PROPERTIES
     SOVERSION ${${PROJECT_NAME}_VERSION}
     VERSION ${${PROJECT_NAME}_VERSION}
 )
 
-install(TARGETS ${PROJECT_NAME} EXPORT ${PROJECT_NAME}
+install(TARGETS kobuki EXPORT ${PROJECT_NAME}
    RUNTIME DESTINATION bin
    ARCHIVE DESTINATION lib
    LIBRARY DESTINATION lib
 )
-
