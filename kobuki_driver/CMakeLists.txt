@@ -19,6 +19,7 @@ find_package(ecl_sigslots REQUIRED)
 find_package(ecl_time REQUIRED)
 find_package(ecl_command_line REQUIRED)
 
+find_package(Eigen3 REQUIRED)
 
 ##############################################################################
 # Project Configuration
@@ -28,7 +29,8 @@ ecl_enable_cxx11_compiler()
 
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -pthread -fPIC  -Wno-deprecated-declarations")
 
-include_directories(include)
+include_directories(include
+  ${EIGEN3_INCLUDE_DIR})
 
 ##############################################################################
 # Sources

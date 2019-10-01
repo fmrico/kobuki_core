@@ -6,7 +6,7 @@ add_executable(kobuki_velocity_commands velocity_commands.cpp)
 target_link_libraries(kobuki_velocity_commands kobuki)
 
 add_executable(demo_kobuki_initialisation initialisation.cpp)
-target_link_libraries(demo_kobuki_initialisation kobuki)
+target_link_libraries(demo_kobuki_initialisation kobuki ecl_threads::ecl_threads)
 
 add_executable(demo_kobuki_sigslots sigslots.cpp)
 target_link_libraries(demo_kobuki_sigslots kobuki)

@@ -3,6 +3,14 @@ project(kobuki_ftdi)
 
 find_package(ament_cmake REQUIRED)
 find_package(ecl_command_line REQUIRED)
+find_package(ecl_build REQUIRED)
+find_package(ecl_mobile_robot REQUIRED)
+find_package(ecl_converters REQUIRED)
+find_package(ecl_devices REQUIRED)
+find_package(ecl_geometry REQUIRED)
+find_package(ecl_sigslots REQUIRED)
+find_package(ecl_time REQUIRED)
+find_package(ecl_command_line REQUIRED)
 
 # pkg-config packages
 find_package(PkgConfig)
